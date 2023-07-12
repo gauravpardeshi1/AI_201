@@ -91,11 +91,11 @@ h1{
 }
 
 #webcam-container{
-    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;  
+    /* box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;   */
       width: 34%;
     height:auto;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 10px;
     padding:30px;
    
 }
@@ -147,19 +147,18 @@ h1{
 
 
 #label-container {
-    font-size: 30px;
-    font-weight: bold;
+     font-size: 5px; 
+     font-weight: bold; 
     
     text-align: center;
-    color:#3c76b8;
+    color:#2b044d;
 	font-size: 3vw;
     width: 30%;
 margin: auto;
-	border: 0.35rem solid;
+height:auto;
+	
 	padding: 3vw;
-    margin-top: 20px;
-	border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
-	animation: borderRotate var(--d) linear infinite forwards;
+	
 }
 
 #label-container:nth-child(2) {
@@ -194,4 +193,11 @@ margin: auto;
 		--gradX: 50%;
 		--gradY: 0%;
 	}
+}
+p{
+    text-align: center;
+    font-weight: 400;
+    font-size: 10;
+    color: gray;
+    margin-top: 30px;
 }

@@ -29,7 +29,9 @@
        <div id="webcam-container"></div>
        <div id="label-container"></div>
     </div>
-   
+   <div>
+    <p>mady by gaurav</p>
+   </div>
    
 </body>
 
@@ -91,7 +93,11 @@
         document.getElementById("webcam-container").appendChild(webcam.canvas);
         labelContainer = document.getElementById("label-container");
         
-          
+        if(labelContainer.innerHTML=''){
+         console.log('yes')
+    }else{
+        console.log('no')
+    }
       
         for (let i = 0; i < maxPredictions; i++) { // and class labels
             labelContainer.appendChild(document.createElement("div"));
@@ -111,21 +117,26 @@
         const prediction = await model.predict(webcam.canvas);
         //.log('p',prediction)
        // return
+       
+
          for (let i = 0; i < maxPredictions; i++) {
             const p=[]
             if(prediction[i].probability.toFixed(2)>0.80){
                  classPrediction +=prediction[i].className
                  labelContainer.childNodes[i].innerHTML =`Result : ${classPrediction}`;
                  break;
-                
-                 
-                 // break;
-                }
+               }else{
+                labelContainer.childNodes[i].innerHTML =`Loading...`;
+               }
                 //  const classPrediction =
-                //      prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+                //       prediction[i].className + ": " + prediction[i].probability.toFixed(2);
                 //console.log('p',prediction[i].probability.toFixed(2))
+                labelContainer.childNodes[i].innerHTML =classPrediction;
                 
             }
+          
     }
+
+    
 </script>
 </html>
