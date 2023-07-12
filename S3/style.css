@@ -1,0 +1,197 @@
+body {
+   
+    width:100%;
+    margin: 0;
+    padding: 0;
+   
+    font-family: "Nunito", sans-serif;
+  }
+#main{
+   
+    width:100%;
+    height:600px;
+   
+}
+.main-c{
+height:80px;
+margin-top: -15px;
+background-color: #3c76b8;
+box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+}
+#top{
+    width:100%;
+    margin: auto;
+   
+    display: flex;
+    justify-content:space-between;
+}
+img{
+    width: 100%;
+    height: 110%;
+}
+.top-a{
+    width:50%;
+   
+    margin-top: 120px;
+    padding-left: 80px;
+}
+.top-b{
+    padding: 30px;
+    
+}
+button{
+    border:none;
+    background-color: #2b044d;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 16px 40px;
+  border-radius: 6px;
+  cursor: pointer;
+  
+  margin: 0;
+}
+
+button:hover{
+    transition: all 0.2s linear;
+    transform:scale(1.1);
+    transition:all .5s;
+     cursor:pointer;
+     background-color: #3c76b8;
+}
+#heading{
+    margin-left: 30px;
+    padding:20px;
+    color:white
+}
+
+h1{
+    color:#3c76b8;
+}
+
+#main2{
+   
+    margin-top: 200px;
+    height:500px
+}
+.main2-c{
+    width: 37%;
+    margin: auto;
+}
+#start{
+    /* width: 40%;
+    margin: auto; */
+    text-align: center;
+}
+.start-c{
+    width: 15%;
+}
+
+#webcam-container{
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;  
+      width: 34%;
+    height:auto;
+    margin: auto;
+    margin-top: 40px;
+    padding:30px;
+   
+}
+/* #label-container{
+    
+  height:auto;
+  margin: auto;
+  margin-top: 20px;
+  padding:30px;
+  font-size: 30px;
+  font-weight: bold;
+  
+  text-align: center;
+  color:#ea4d4e;
+  
+  
+} */
+@import url("https://fonts.googleapis.com/css?family=Raleway:400");
+
+* {
+	box-sizing: border-box;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 90deg;
+  inherits: true;
+}
+
+@property --gradX {
+  syntax: '<percentage>';
+  initial-value: 50%;
+  inherits: true;
+}
+
+@property --gradY {
+  syntax: '<percentage>';
+  initial-value: 0%;
+  inherits: true;
+}
+:root {
+	--d: 2500ms;
+	--angle: 90deg;
+	--gradX: 100%;
+	--gradY: 50%;
+	--c1:#1EE67B;
+	--c2: gray;
+}
+
+
+#label-container {
+    font-size: 30px;
+    font-weight: bold;
+    
+    text-align: center;
+    color:#3c76b8;
+	font-size: 3vw;
+    width: 30%;
+margin: auto;
+	border: 0.35rem solid;
+	padding: 3vw;
+    margin-top: 20px;
+	border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+	animation: borderRotate var(--d) linear infinite forwards;
+}
+
+#label-container:nth-child(2) {
+	border-image: radial-gradient(ellipse at var(--gradX) var(--gradY), var(--c1), var(--c1) 10%, var(--c2) 40%) 30;
+	animation: borderRadial var(--d) linear infinite forwards;
+}
+
+@keyframes borderRotate {
+	100% {
+		--angle: 420deg;
+	}
+}
+
+@keyframes borderRadial {
+	20% {
+		--gradX: 100%;
+		--gradY: 50%;
+	}
+	40% {
+		--gradX: 100%;
+		--gradY: 100%;
+	}
+	60% {
+		--gradX: 50%;
+		--gradY: 100%;
+	}
+	80% {
+		--gradX: 0%;
+		--gradY: 50%;
+	}
+	100% {
+		--gradX: 50%;
+		--gradY: 0%;
+	}
+}
