@@ -1,0 +1,12 @@
+.counter{
+    width:20%;
+    margin: auto;
+}
+button{
+    border:none;
+    padding:15px 35px;
+}
+.count{
+    text-align: center;
+    color: rgb(16, 121, 107); 
+}

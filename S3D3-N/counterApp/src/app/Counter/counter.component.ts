@@ -6,14 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./counter.component.css']
 })
 export class CounterComponent {
-  title = 'counterApp by gaurav';
-  count: number = 0;
+  counter = 0;
 
-  increment(): void {
-    this.count++;
+  increment() {
+    this.counter++;
+  }
+  decrement() {
+    if (this.counter > 0) {
+      this.counter--;
+    }
   }
 
-  decrement(): void {
-    this.count--;
+  isDecrementDisabled() {
+    return this.counter === 0;
   }
 }
