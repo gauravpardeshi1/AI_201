@@ -1,0 +1,9 @@
+<div class="todo-item">
+    <div>
+        <h1 [ngClass]="{ 'completed': todo.completed }" class="title">Title : {{ todo.title }}</h1>
+        <h1>Description : {{ todo.description }}</h1>
+        <button  (click)="markAsCompleted()" class="mark-but">Mark as Completed</button>
+        <button (click)="deleteTodo()" class="delete-but">Delete</button>
+    </div>
+  </div>
+  

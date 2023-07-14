@@ -1,0 +1,31 @@
+.todo-item{
+    border:1px solid gray;
+    width:30%;
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+}
+h1{
+   
+    color: rgb(16, 121, 107);
+    font-weight: 600;
+    font-size: larger;
+}
+.delete-but{
+    background-color: rgb(212, 38, 32);
+    color:white;
+    border:none;
+    padding:10px 30px;
+    margin-bottom: 5px;
+}
+.mark-but{
+    background-color: rgb(31, 124, 153);
+    color:white;
+    border:none;
+    padding:10px 30px;
+    margin-bottom: 5px;
+}
+
+.delete-but:hover{
+    cursor: pointer;
+}

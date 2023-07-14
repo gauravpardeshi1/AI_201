@@ -1,0 +1,13 @@
+a{
+    color:white;
+}
+span{
+    color:white;
+    font-size: 20px;
+    font-weight: 50%;
+}
+.nav{
+    display: flex;
+    justify-content: space-evenly;
+    gap:20px;
+}

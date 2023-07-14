@@ -1,0 +1,39 @@
+h1{
+    text-align: center;
+    color: rgb(16, 121, 107);
+}
+
+#add-todo{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    width:20%;
+    margin: auto;
+    padding: 20px;
+}
+input{
+    height: 20px;
+ 
+    
+}
+label{
+    color:rgb(24, 172, 127);
+    font-size: larger;
+    font-weight: 500;
+    text-align: left;
+}
+form{
+    text-align: left;
+}
+textarea{
+   width: 60%;
+}
+button{
+    border:none;
+    padding:10px 40px;
+    background-color: gray;
+    color:white
+}
+button:hover{
+    background-color: rgb(219, 155, 15);
+    cursor: pointer;
+    color:white
+}
