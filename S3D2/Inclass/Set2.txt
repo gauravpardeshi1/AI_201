@@ -1,0 +1,63 @@
+SQL Schema:CREATE TABLE Restaurants (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    cuisine_type VARCHAR(100),
+    location VARCHAR(255),
+    average_rating DECIMAL(3,2),
+    delivery_available BOOLEAN
+);
+
+Problem 16 Answer :- 
+
+CREATE TABLE Restaurants (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    cuisine_type VARCHAR(100),
+    location VARCHAR(255),
+    average_rating DECIMAL(3,2),
+    delivery_available BOOLEAN
+);
+
+Problem 17 Answer :- 
+
+INSERT INTO Restaurants (id, name, cuisine_type, location, average_rating, delivery_available)
+VALUES (1, 'Restaurant A', 'Italian', 'New York', 4.5, true),
+       (2, 'Restaurant B', 'Mexican', 'Los Angeles', 4.2, true),
+       (3, 'Restaurant C', 'Chinese', 'San Francisco', 4.8, true),
+       (4, 'Restaurant D', 'Indian', 'Chicago', 4.6, false),
+       (5, 'Restaurant E', 'Japanese', 'Tokyo', 4.4, true);
+
+
+Problem 18 Answer :- 
+
+SELECT * FROM Restaurants ORDER BY average_rating DESC;
+
+
+Problem 19 Answer :- 
+
+SELECT * FROM Restaurants WHERE delivery_available = true AND average_rating > 4;
+
+
+Problem 20 Answer :- 
+
+SELECT * FROM Restaurants WHERE cuisine_type IS NULL OR cuisine_type = '';
+
+Problem 21 Answer :- 
+
+SELECT COUNT(*) FROM Restaurants WHERE delivery_available = true;
+
+Problem 22 Answer :- 
+
+SELECT * FROM Restaurants WHERE location LIKE '%New York%';
+
+Problem 23 Answer :- 
+
+SELECT AVG(average_rating) FROM Restaurants;
+
+Problem 24 Answer :- 
+
+SELECT * FROM Restaurants ORDER BY average_rating DESC LIMIT 5;
+
+Problem 25 Answer :- 
+
+DELETE FROM Restaurants WHERE id = 3;

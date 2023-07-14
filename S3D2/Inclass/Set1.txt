@@ -1,0 +1,154 @@
+mysql> CREATE DATABASE assignment1;
+Query OK, 1 row affected (0.08 sec)
+
+mysql> USE assignment1;
+Database changed
+mysql> CREATE TABLE Customers (
+    ->     id INT PRIMARY KEY,
+    ->     name VARCHAR(100),
+    ->     email VARCHAR(100),
+    ->     address VARCHAR(255),
+    ->     phone_number VARCHAR(50)
+    -> );
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> INSERT INTO Customers (name, email, address, phone_number)
+    -> VALUES
+    ->     ('John Doe', 'johndoe@example.com', 'New York', '1234567890'),
+    ->     ('Jane Smith', 'janesmith@example.com', 'Los Angeles', '9876543210'),
+    ->     ('Michael Johnson', 'michaeljohnson@example.com', 'Chicago', '5555555555'),
+    ->     ('Emily Brown', 'emilybrown@example.com', 'Houston', '7777777777'),
+    ->     ('David Wilson', 'davidwilson@example.com', 'San Francisco', '9999999999');
+ERROR 1364 (HY000): Field 'id' doesn't have a default value
+mysql> INSERT INTO Customers (name, email, address, phone_number)
+    -> VALUES
+    ->     ('John Doe', 'johndoe@example.com', 'New York', '1234567890'),
+    ->     ('Jane Smith', 'janesmith@example.com', 'Los Angeles', '9876543210'),
+    ->     ('Michael Johnson', 'michaeljohnson@example.com', 'Chicago', '5555555555'),
+    ->     ('Emily Brown', 'emilybrown@example.com', 'Houston', '7777777777'),
+    ->     ('David Wilson', 'davidwilson@example.com', 'San Francisco', '9999999999');
+ERROR 1364 (HY000): Field 'id' doesn't have a default value
+mysql> INSERT INTO Customers (id, name, email, address, phone_number)
+    -> VALUES
+    ->     (1, 'John Doe', 'johndoe@example.com', 'New York', '1234567890'),
+    ->     (2, 'Jane Smith', 'janesmith@example.com', 'Los Angeles', '9876543210'),
+    ->     (3, 'Michael Johnson', 'michaeljohnson@example.com', 'Chicago', '5555555555'),
+    ->     (4, 'Emily Brown', 'emilybrown@example.com', 'Houston', '7777777777'),
+    ->     (5, 'David Wilson', 'davidwilson@example.com', 'San Francisco', '9999999999');
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM Customers
+    -> SELECT * FROM Customers;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT * FROM Customers' at line 2
+mysql> SHOW TABLES;
++-----------------------+
+| Tables_in_assignment1 |
++-----------------------+
+| customers             |
++-----------------------+
+1 row in set (0.03 sec)
+
+mysql> SELECT * FROM customers;
++----+-----------------+----------------------------+---------------+--------------+
+| id | name            | email                      | address       | phone_number |
++----+-----------------+----------------------------+---------------+--------------+
+|  1 | John Doe        | johndoe@example.com        | New York      | 1234567890   |
+|  2 | Jane Smith      | janesmith@example.com      | Los Angeles   | 9876543210   |
+|  3 | Michael Johnson | michaeljohnson@example.com | Chicago       | 5555555555   |
+|  4 | Emily Brown     | emilybrown@example.com     | Houston       | 7777777777   |
+|  5 | David Wilson    | davidwilson@example.com    | San Francisco | 9999999999   |
++----+-----------------+----------------------------+---------------+--------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT name,email FROM customers;
++-----------------+----------------------------+
+| name            | email                      |
++-----------------+----------------------------+
+| John Doe        | johndoe@example.com        |
+| Jane Smith      | janesmith@example.com      |
+| Michael Johnson | michaeljohnson@example.com |
+| Emily Brown     | emilybrown@example.com     |
+| David Wilson    | davidwilson@example.com    |
++-----------------+----------------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM customers WHERE id = 3;
++----+-----------------+----------------------------+---------+--------------+
+| id | name            | email                      | address | phone_number |
++----+-----------------+----------------------------+---------+--------------+
+|  3 | Michael Johnson | michaeljohnson@example.com | Chicago | 5555555555   |
++----+-----------------+----------------------------+---------+--------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM customers WHERE name 'A%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''A%'' at line 1
+mysql> SELECT *
+    -> FROM Customers
+    -> WHERE name LIKE 'A%';
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM customers ORDER BY name DESC;
++----+-----------------+----------------------------+---------------+--------------+
+| id | name            | email                      | address       | phone_number |
++----+-----------------+----------------------------+---------------+--------------+
+|  3 | Michael Johnson | michaeljohnson@example.com | Chicago       | 5555555555   |
+|  1 | John Doe        | johndoe@example.com        | New York      | 1234567890   |
+|  2 | Jane Smith      | janesmith@example.com      | Los Angeles   | 9876543210   |
+|  4 | Emily Brown     | emilybrown@example.com     | Houston       | 7777777777   |
+|  5 | David Wilson    | davidwilson@example.com    | San Francisco | 9999999999   |
++----+-----------------+----------------------------+---------------+--------------+
+5 rows in set (0.00 sec)
+
+mysql> UPDATE customers SET address = 'London' WHERE id = 4;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM customers ORDER BY id ASC LIMIT 3;
++----+-----------------+----------------------------+-------------+--------------+
+| id | name            | email                      | address     | phone_number |
++----+-----------------+----------------------------+-------------+--------------+
+|  1 | John Doe        | johndoe@example.com        | New York    | 1234567890   |
+|  2 | Jane Smith      | janesmith@example.com      | Los Angeles | 9876543210   |
+|  3 | Michael Johnson | michaeljohnson@example.com | Chicago     | 5555555555   |
++----+-----------------+----------------------------+-------------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> DELETE FROM customers WHERE id = 2;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT COUNT(*) FROM customers;
++----------+
+| COUNT(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.01 sec)
+
+mysql> SELECT *
+    -> FROM Customers
+    -> ORDER BY id ASC
+    -> LIMIT 18446744073709551615 OFFSET 2;
++----+--------------+-------------------------+---------------+--------------+
+| id | name         | email                   | address       | phone_number |
++----+--------------+-------------------------+---------------+--------------+
+|  4 | Emily Brown  | emilybrown@example.com  | London        | 7777777777   |
+|  5 | David Wilson | davidwilson@example.com | San Francisco | 9999999999   |
++----+--------------+-------------------------+---------------+--------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM customers WHERE id > 2 AND name LIKE 'B%';
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM Customers WHERE id < 3 OR name LIKE '%s';
++----+----------+---------------------+----------+--------------+
+| id | name     | email               | address  | phone_number |
++----+----------+---------------------+----------+--------------+
+|  1 | John Doe | johndoe@example.com | New York | 1234567890   |
++----+----------+---------------------+----------+--------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM Customers
+    -> WHERE phone_number IS NULL OR phone_number = '';
+Empty set (0.00 sec)
